@@ -59,7 +59,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="login.html"><b>LOGIN/SIGNUP</b></a>
               </li>
-                
+
+              <li class="nav-item">
+                <a class="nav-link" href="adminlogin.html"><b>ADD DOCTOR</b></a>
+              </li>
                   
                  
                 </ul>
@@ -225,6 +228,7 @@
             </div>
           </div>
         </div>
+        <div class="col-md-4  mt-2" id="IMMUNOLOGISTS"></div>
       </div>
     </div>
  
@@ -282,9 +286,10 @@
             </div>
           </div>
         </div>  
+        <div class="col-md-4  mt-2" id="CARDIOLOGISTS"></div>
      </div> 
     </div> 
-  </div>
+ 
 
 
 
@@ -339,6 +344,7 @@
         </div>
       </div>
     </div>  
+    <div class="col-md-4  mt-2" id="DERMATOLOGISTS"></div>
   </div>
 </div>
 
@@ -398,6 +404,7 @@
         </div>
       </div>
     </div>
+    <div class="col-md-4  mt-2" id="ENDOCRINOLOGISTS"></div>
   </div>
 </div>
 
@@ -454,7 +461,8 @@
        <p> <a href="book.html" class="btn" onclick="storeData('cb14')" style="background-color:#003a70; color:white">Get Appointment</a></p>
       </div>
     </div>
-  </div>  
+  </div>
+  <div class="col-md-4  mt-2" id="GASTROENTEROLOGISTS"></div>  
 </div>
 </div>
 
@@ -511,7 +519,8 @@
        <p> <a href="book.html" class="btn" onclick="storeData('cb17')" style="background-color:#003a70; color:white">Get Appointment</a></p>
       </div>
     </div>
-  </div>  
+  </div>
+  <div class="col-md-4  mt-2" id="NEPHROLOGISTS"></div>  
 </div>
 </div>
 
@@ -569,7 +578,8 @@
        <p> <a href="book.html" class="btn" onclick="storeData('cb20')" style="background-color:#003a70; color:white">Get Appointment</a></p>
       </div>
     </div>
-  </div>  
+  </div> 
+  <div class="col-md-4  mt-2" id="NEUROLOGISTS"></div> 
 </div>
 </div>
 
@@ -626,6 +636,7 @@
       </div>
     </div>
   </div>  
+  <div class="col-md-4  mt-2" id="GYNECOLOGISTS"></div>
 </div>
 </div>
 
@@ -682,7 +693,8 @@
        <p> <a href="book.html" class="btn" onclick="storeData('cb26')" style="background-color:#003a70; color:white">Get Appointment</a></p>
       </div>
     </div>
-  </div>  
+  </div>
+  <div class="col-md-4  mt-2" id="OPHTHALMOLOGISTS"></div>  
 </div>
 </div>
 
@@ -739,6 +751,7 @@
       </div>
     </div>
   </div>
+  <div class="col-md-4  mt-2" id="ORTHOPAEDIC"></div>
 </div>
 </div>
 
@@ -829,13 +842,40 @@ function storeData(divId){
   localStorage.setItem("task1",JSON.stringify(i));
 }
 
-localStorage.clear();
 
 
 
 
+/* function to fetch the data from adddoctor page.*/
 
 
+
+let category = JSON.parse(localStorage.getItem("category"));
+let name = JSON.parse(localStorage.getItem("name"))||"";
+let achievements = JSON.parse(localStorage.getItem("achievements"));
+let fee = JSON.parse(localStorage.getItem("fee"));
+let image = JSON.parse(localStorage.getItem("image"));
+
+if(name!=""){
+
+
+document.querySelector('#'+category).innerHTML=`
+
+<div class="card"  style="width: 23rem;  border:3px solid black">
+          <img class="card-img-top" src="image/${image}" height="200px" width="190px"  alt="Card image cap">
+            <div class="card-body" id="#">
+              <h5 class="card-title name" style="color:#003a70">${name}</h5>
+              <p class="card-text name1">
+                ${achievements}
+                
+                  <p><b>Doctor's Fee : Rs ${fee}</b></p>
+              <a href="book.html" class="btn " onclick="storeData('cb')" style="background-color:#003a70; color:white">Get Appointment</a>
+              
+            </div>
+          </div>
+
+`
+        }
 
   </script>
   
